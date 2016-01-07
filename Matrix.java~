@@ -1,4 +1,4 @@
-//James Hua
+//Team crispy-octo-fiesta James Hua, Ruochong Wu
 //APCS1 pd10
 //HW55 -- Don't Think You Are. Know You Are.
 //2016-01-06

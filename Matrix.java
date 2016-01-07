@@ -160,6 +160,17 @@ public class Matrix {
 	}
 	return retcol;
     }
+
+    public boolean contains(Object o){
+	for (Object[] row : matrix){
+	    for (Object elem : row){
+		if ((elem!=null)&&(elem.equals(o))){
+		    return true;
+		}
+	    }
+	}
+	return false;
+    }
 	
 	
     //main method for testing
@@ -218,6 +229,20 @@ public class Matrix {
 	
 	System.out.println(I.equals(Me));
 	System.out.println(Me.equals(I));
+
+	System.out.println("New tests");
+
+	Matrix test = new Matrix();
+	Matrix test2 = new Matrix();
+	System.out.println(test.equals(test2));
+	test.set(0,0,"hello");
+	test2.set(1,0,99);
+	System.out.println(test.equals(test2));
+	System.out.println(test.contains("hello"));
+	System.out.println(test.contains(99));
+	System.out.println(test2.contains(99));
+	System.out.println(test2.contains("hello"));
+	System.out.println(test2);
     }
     
 }//end class Matrix
