@@ -171,7 +171,14 @@ public class Matrix {
 	}
 	return false;
     }
-	
+
+    public void transpose(){
+	Object[][] temp = new Object[size()][size()];
+	for ( int a = 0; a < size(); a++){
+	    temp[a] = getCol(a);
+	}
+	matrix = temp;
+    }
 	
     //main method for testing
     public static void main( String[] args ) {
