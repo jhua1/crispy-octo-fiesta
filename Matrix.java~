@@ -80,14 +80,14 @@ public class Matrix {
 	if (this == rightSide){
 	    foo = true;
 	}
-	
+
 	else if ( rightSide instanceof Matrix
 		  && size() == ( ( Matrix)rightSide).size() ){
 	    Matrix r = (Matrix)rightSide;
 	    foo = true;
 	    for( int i = 0; i < size() ; i++){
 		for( int j = 0; j < size(); j++){
-		    if ( !isEmpty(i,j) && ( !get(i,j).equals(r.get(i,j)))){
+		    if ( !isEmpty(i,j) && ( !get(i.j).equals(r.get(i,j)))){
 			foo = false;
 			break;
 		    }
@@ -101,6 +101,7 @@ public class Matrix {
 	}
 	return foo;
     }
+
 
     //swap two columns of this matrix 
     //(1,1) is top left corner of matrix
