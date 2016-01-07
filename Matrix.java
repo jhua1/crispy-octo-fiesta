@@ -1,7 +1,7 @@
 //James Hua
 //APCS1 pd10
-//HW54 -- Red vs Blue
-//2016-01-05
+//HW55 -- Don't Think You Are. Know You Are.
+//2016-01-06
 
 /*====================================
   class Matrix -- models a square matrix
@@ -85,19 +85,21 @@ public class Matrix {
 	    foo = true;
 	    for( int i = 0; i < size() ; i++){
 		for( int j = 0; j < size(); j++){
-		    if ( !isEmpty(i,j) && ( !get(i.j).equals(r.get(i,j)))){
+		    if ( !isEmpty(i,j) && ( !get(i,j).equals(r.get(i,j)))){
 			foo = false;
 			break;
 		    }
 		    else if ( !(isEmpty(i,j) && r.isEmpty(i,j))){
 			foo = false;
-			break;
+			break;		        
 		    }
 		}
 		break;
-	    }	    
+	    }
+	    
 	}
-	return foo;
+	return foo;	
+
     }
 
 
@@ -121,11 +123,22 @@ public class Matrix {
 	}
     }
 
-    public object[] getRow( int r){
+    public boolean isFull(){
+	for ( int a = 0; a < size(); a++){
+	    for ( int b = 0; b < size(); b++){
+		if ( isEmpty(a,b)){
+		    return false;
+		}
+	    }
+	}
+	return true;
+    }
+		
+    public Object[] getRow( int r){
 	return matrix[r];
     }
     
-    public Object[] setRow( int r, Objec[] newRow){
+    public Object[] setRow( int r, Object[] newRow){
 	Object[] temp = getRow(r);
 	matrix[r]= newRow;
 	return temp;
@@ -138,7 +151,16 @@ public class Matrix {
 	}
 	return temp;
     }
-
+    
+    public Object[] setCol (int c, Object[] newCol){
+	Object[] retcol = getCol(c);
+	for ( int x = 0; x < size(); x++){
+	    matrix[x][c] = newCol[x];
+	}
+	return retcol;
+    }
+	
+	
     //main method for testing
     public static void main( String[] args ) {
 	Matrix yes = new Matrix(3);
@@ -177,6 +199,24 @@ public class Matrix {
 	Matrix aswell = new Matrix(2);
 
 	System.out.println(yes.equals(aswell));
+
+    	Matrix I = new Matrix(2);
+	I.set(0,0,1);
+	I.set(0,1,2);
+	I.set(1,0,"cat");
+	I.set(1,1,"dog");
+
+	Matrix Me = new Matrix(2);
+	Me.set(0,0,1);
+	Me.set(0,1,2);
+	Me.set(1,0,"cat");
+	Me.set(1,1,"dog");
+
+	System.out.println(I);
+	System.out.println(Me);
+	
+	System.out.println(I.equals(Me));
+	System.out.println(Me.equals(I));
     }
     
 }//end class Matrix
